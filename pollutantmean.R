@@ -1,8 +1,10 @@
 pollutantmean <- function(directory, pollutant, id = 1:322){
   ## 'directory' is a character vector of length 1 indicating the 
   ## location of the CSV files
-  setwd(directory)
+  ## setwd(directory)
+  
   files = list.file(path = directory, pattern = ".csv")
+  
   ## read the data from the csv file
   read.csv()
   
