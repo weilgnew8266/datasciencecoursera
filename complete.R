@@ -11,11 +11,19 @@ complete <- function(directory, id = 1:332){
   ## read the data from the csv files
   data_list <- lapply(files_list, read.csv)
   
-  complete_list = complete.cases
+  ## determine the complete case for each data list 
+  complete_list <- lapply(data_list, complete.cases)
   
+  ## Compute the sum of the complete cases for each data list
+  complete_list_sum <-lapply (complete_list, sum)
   
+  ## create a data frame to store the number of complete cases for each ID
+  complete_data <- data.frame("id" = id, "nobs" = unlist(complete_list_sum))
   
+  ## return to the original directory
+  setwd("..")
   
+  return(complete_data)
   
 }
 

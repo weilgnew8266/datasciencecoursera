@@ -14,10 +14,6 @@ pollutantmean <- function(directory, pollutant, id = 1:332){
   data <- do.call(rbind, data_list)
   
   ## calculate the mean value
-  
-  ## mean_value = mean(x, trim = 0, na.rm = FALSE, ...)
-  ## mean_value <- mean(!is.na(paste0("data$",pollutant)))
-  
   mean_value <- mean(data[,pollutant], na.rm = TRUE)
   
   ## set the directory back to original level
